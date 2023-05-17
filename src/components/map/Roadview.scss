@@ -1,0 +1,100 @@
+.roadview {
+  display: flex;
+  width: 50vw;
+  height: calc(100vh - 55px);
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  right: 5px;
+  z-index: 4;
+}
+.roadview.visible {
+  display: block;
+  z-index: 10;
+}
+.rwbutton {
+  position: absolute;
+  left: 960px;
+  top: 60px;
+  box-shadow: 0px 1px #888;
+  z-index: 10;
+  border: 1px solid #c8c8c8;
+  cursor: pointer;
+}
+.map {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 55px);
+  position: absolute;
+  top: 55px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
+.rwbutton:hover{
+  box-shadow: 0 80px 0 0 rgb(253, 252, 252) inset,
+  0 -80px 0 0 rgb(255, 255, 255) inset;
+}
+
+#container {
+  overflow: hidden;
+  height: 300px;
+  position: relative;
+  z-index: 3;
+}
+
+#mapWrapper {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+#rvWrapper {
+  width: 50%;
+  height: 300px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  z-index: 3;
+}
+
+#container.view_roadview #mapWrapper {
+  width: 50%;
+  z-index: 3;
+}
+
+.roadviewControl {
+  position: absolute;
+  top: 55px;
+  left: 5px;
+  width: 42px;
+  height: 42px;
+  z-index: 10;
+  cursor: pointer;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) 0 -450px no-repeat;
+}
+
+.roadviewControl.active {
+  background-position: 0 -350px;
+  z-index: 3;
+}
+
+.close {
+  position: absolute;
+  padding: 4px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #c8c8c8;
+  box-shadow: 0px 1px #888;
+}
+
+.close .img {
+  display: block;
+  background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/rv_close.png) no-repeat;
+  width: 14px;
+  height: 14px;
+}

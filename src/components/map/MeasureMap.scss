@@ -1,0 +1,56 @@
+.openmap {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 55px);
+  position: absolute;
+  top: 55px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
+
+.ol-zoom {
+  display: none;
+}
+.ol-rotate {
+  display: none;
+}
+.ol-attribution{
+  display: none;
+}
+.ol-viewport {
+  display: flex;
+  position: absolute;
+}
+
+.ol-tooltip-static {
+  background-color: #ffcc33;
+  font-weight: 2000;
+  color: black;
+  border: 1px solid white;
+}
+
+.form {
+  display: flex;
+  position: absolute;
+  bottom: 75px;
+  right: 25px;
+
+  padding: 10px;
+
+  flex-direction: column;
+  gap: 10px;
+
+  background-color: white;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+
+  box-shadow: 3px 3px 10px grey;
+  box-sizing: border-box;
+
+  width: 200px;
+  height: 80px;
+
+  z-index: 3;
+}

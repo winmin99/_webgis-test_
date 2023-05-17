@@ -1,0 +1,22 @@
+.satellite {
+  display: flex;
+  width: 50vw;
+  height: calc(100vh - 55px);
+  position: absolute;
+  top: 55px;
+  bottom: 0;
+  right: 5px;
+  z-index: 4;
+}
+
+.satellitemap {
+  display: flex;
+  width: 50vw;
+  height: calc(100vh - 55px);
+  position: fixed;
+  top: 55px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 4;
+}

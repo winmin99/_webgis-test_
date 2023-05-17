@@ -1,0 +1,44 @@
+.plusmap {
+  display: flex;
+  width: 100vw;
+  height: calc(100vh - 55px);
+  position: absolute;
+  top: 55px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
+.p {
+  display: flex;
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 110px;
+}
+.p button {
+  background-color: skyblue;
+  color: #fff; /* 버튼의 텍스트 색상을 흰색(화이트)로 설정 */
+  font-size: 16px; /* 버튼의 글자 크기를 16px로 설정 */
+  padding: 8px 8px; /* 버튼의 내부 여백을 10px(top/bottom) 20px(left/right)으로 설정 */
+  margin-right: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.p button:hover{
+  box-shadow: 0 80px 0 0 rgb(38, 38, 91) inset,
+  0 -80px 0 0 rgb(27, 29, 161) inset;
+}
+.checkbox {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  margin-right: 8px;
+  margin-top: 8px;
+  display: flex;
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  right: 110px;
+}
+
