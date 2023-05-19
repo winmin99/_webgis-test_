@@ -235,10 +235,10 @@ const MeasureMap = () => {
         <div id="map" className="openmap"></div>
       )}
       <form className="form">
-        <label htmlFor="type">Measurement type &nbsp;</label>
+        <label htmlFor="type">측정 타입 &nbsp;</label>
         <select id="type">
-          <option value="length">Length (LineString)</option>
-          <option value="area">Area (Polygon)</option>
+          <option value="length">선 (LineString)</option>
+          <option value="area">면적 (Polygon)</option>
         </select>
       </form>
     </>
