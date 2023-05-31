@@ -191,6 +191,10 @@ const MainMap = (props: propsType): JSX.Element => {
           places[i].y,
           places[i].x
         );
+        const olCoods:any = [places[i].x, places[i].y] //olmap은 경도 위도 순으로 좌표가 설정되므로 x,y 를 바꿈
+        const KakaoCoords:any = fromLonLat(olCoods, "EPSG:5187"); // 위좌표를 EPSG:5187로 바꿈
+        console.log("검색:", placePosition)
+        console.log("검색좌표",KakaoCoords)
         const marker: any = AddMarker(kakaoMap.current, markers, placePosition, i);
         const itemEl = getListItem(i, places[i]);
         bounds.extend(placePosition);
@@ -213,8 +217,13 @@ const MainMap = (props: propsType): JSX.Element => {
 
           itemEl.addEventListener("click", function (e) {
             displayInfowindow(marker, title);
+            console.log("이벤트", e)
 
-            kakaoMap.current.panTo(placePosition);
+            console.log("이거",KakaoCoords)
+            console.log("뭐고",placePosition)
+
+              olMap.getView().setCenter(KakaoCoords); //바꾼좌표로 olmap중심좌표를 움직임
+            // kakaoMap.current.panTo(placePosition);
           });
         })(marker, places[i].place_name);
 
