@@ -356,7 +356,7 @@ const MainMap = (props: propsType): JSX.Element => {
         <div ref={mapRef} className={classes.kakaoMap}></div>
         <Terrain onChangeMapType={handleTerrainChange}/>
         <Satellite2 onChangeMapType={handleChangeMapType}/>
-        <div id="menuDiv" style={{zIndex: 10}}>
+        <div id="menuDiv">
           <div id="menu_wrap" className="bg_white">
             <div className="option">
               <div>

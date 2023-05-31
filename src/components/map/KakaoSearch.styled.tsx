@@ -116,8 +116,7 @@ export const MapSection = styled.div`
   }
 
   #btnDiv {
-    display: flex;
-    position: absolute;
+    display: flex;    
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
