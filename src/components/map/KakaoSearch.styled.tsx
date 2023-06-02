@@ -42,14 +42,14 @@ export const MapSection = styled.div`
 
   #menuDiv {
     display: flex;
-    position: absolute;
-    z-index: 1;
+    position: relative;
+    z-index: 2;
     font-size: 12px;
   }
 
   #menu_wrap {
     margin-top: 30px;
-    position: absolute;
+    position: relative;
     width: 400px;
     height: 600px;
     border-radius: 20px;
