@@ -15,6 +15,7 @@ import {ObjectEvent} from "ol/Object";
 import {onChangeCenter} from "../../common/olView";
 import Terrain from "./Terrain";
 import Satellite2 from "./Satellite2";
+import Roadview from "./Roadview";
 
 
 declare global {
@@ -103,8 +104,9 @@ const MainMap = (props: propsType): JSX.Element => {
     const ps = new window.kakao.maps.services.Places();
 
     const infowindow = new window.kakao.maps.InfoWindow({
-      zIndex: 1
+      zIndex: 30
     });
+    infowindow.setZIndex(30)
     const searchForm = document.getElementById("submit_btn");
     searchForm?.addEventListener("click", function (e) {
       e.preventDefault();
@@ -348,7 +350,7 @@ const MainMap = (props: propsType): JSX.Element => {
   const onClickSearchBarOpen = () => {
     setIsOpen(!isOpen);
   };
-
+  console.log("props:",props)
   return (
     <>
       <S.MapSection className="map_wrap" isOpen={isOpen}>

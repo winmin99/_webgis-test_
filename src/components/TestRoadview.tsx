@@ -6,11 +6,13 @@ declare global {
     kakao: any;
   }
 }
+
 interface kakaoMap {
   kakaoMap : any
 }
+
 //로드뷰 컴포넌트
-const Roadview = (): JSX.Element => {
+const TestRoadview = (kakaoMap:kakaoMap): JSX.Element => {
   useEffect(() => {
     var overlayOn = false;
     document.querySelector("#kakaomap > div")?.remove();
@@ -23,8 +25,8 @@ const Roadview = (): JSX.Element => {
         128.6239256437062),
       level: 3, //줌레벨
     };
-    const kakaoMap = new window.kakao.maps.Map(mapcontainer, options); //카카오맵 지도 구성
-    kakaoMap.addOverlayMapTypeId(window.kakao.maps.MapTypeId.ROADVIEW)//지도 위에 로드뷰 도로 올리기
+    kakaoMap.kakaoMap = new window.kakao.maps.Map(mapcontainer, options); //카카오맵 지도 구성
+    kakaoMap.kakaoMap.addOverlayMapTypeId(window.kakao.maps.MapTypeId.ROADVIEW)//지도 위에 로드뷰 도로 올리기
     // kakaoMap.removeOverlayMapTypeId(window.kakao.maps.MapTypeId.ROADVIEW);
 
     const roadviewContainer = document.getElementById('roadview'); //로드뷰를 표시할 div
@@ -53,7 +55,7 @@ const Roadview = (): JSX.Element => {
       image: markImage,
       position: options.center,
       draggable: true,
-      map: kakaoMap,
+      map: kakaoMap.kakaoMap,
     });
     //마커에 dragend 이벤트를 할당합니다
     window.kakao.maps.event.addListener(roadviewMarker, 'dragend', function (mouseEvent: any) {
@@ -81,12 +83,12 @@ const Roadview = (): JSX.Element => {
           }
           if (mapWrapper) {
             mapWrapper.style.width = '100%';
-            kakaoMap.relayout();
+            kakaoMap.kakaoMap.relayout();
           }
         } else {
           if (mapWrapper) {
             mapWrapper.style.width = '50%';
-            kakaoMap.relayout(); //지도를 감싸고 있는 영역이 변경됨에 따라, 지도를 재배열합니다
+            kakaoMap.kakaoMap.relayout(); //지도를 감싸고 있는 영역이 변경됨에 따라, 지도를 재배열합니다
           }
           if (roadviewContainer) {
             roadviewContainer.style.display = 'block'; //로드뷰를 넣은 컨테이너를 보이게합니다
@@ -102,21 +104,21 @@ const Roadview = (): JSX.Element => {
         overlayOn = true;
 
         // 지도 위에 로드뷰 도로 오버레이를 추가합니다
-        kakaoMap.addOverlayMapTypeId(window.kakao.maps.MapTypeId.ROADVIEW);
+        kakaoMap.kakaoMap.addOverlayMapTypeId(window.kakao.maps.MapTypeId.ROADVIEW);
 
         // 지도 위에 마커를 표시합니다
         roadviewMarker.setMap(kakaoMap);
 
         // 마커의 위치를 지도 중심으로 설정합니다
-        roadviewMarker.setPosition(kakaoMap.getCenter());
+        roadviewMarker.setPosition(kakaoMap.kakaoMap.getCenter());
 
         // 로드뷰의 위치를 지도 중심으로 설정합니다
-        toggleRoadview(kakaoMap.getCenter());
+        toggleRoadview(kakaoMap.kakaoMap.getCenter());
       } else {
         overlayOn = false;
 
         // 지도 위의 로드뷰 도로 오버레이를 제거합니다
-        kakaoMap.removeOverlayMapTypeId(window.kakao.maps.MapTypeId.ROADVIEW);
+        kakaoMap.kakaoMap.removeOverlayMapTypeId(window.kakao.maps.MapTypeId.ROADVIEW);
 
         // 지도 위의 마커를 제거합니다
         roadviewMarker.setMap(null);
@@ -147,7 +149,6 @@ const Roadview = (): JSX.Element => {
     window.location.reload();
   }
   //기본지도위에 로드뷰를 50%로 올림
-
   return (
     <>
       <div id="mapWrapper">
@@ -159,4 +160,4 @@ const Roadview = (): JSX.Element => {
   )
 };
 
-export default Roadview;
+export default TestRoadview;

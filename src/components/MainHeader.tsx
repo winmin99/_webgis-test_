@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import classes from "./MainHeader.module.css";
 import Roadview from "./map/Roadview"
 import MainMap from "./map/MainMap"
-import PlusMap from "./map/PlusMap";
 import * as S from "./map/KakaoSearch.styled";
 import Satellite from "./map/Satellite";
 import StrokeMap from "./map/StrokeMap";
